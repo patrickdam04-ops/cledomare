@@ -542,12 +542,62 @@
 
 
 
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(15px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: zoom-out;
+    }
+
+    .lightbox.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      transform: scale(1);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox.hide img {
+      transform: scale(0.95);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 100001;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.1);
+    }
+
     .photo-item-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transform: scale(1.15);
-      /* room for parallax */
+      cursor: zoom-in;
       will-change: transform;
     }
 
@@ -1475,6 +1525,18 @@
     </div>
   </footer>
 
+  <!-- ====== LIGHTBOX ====== -->
+  <div id="lightbox" class="lightbox hide" onclick="closeLightbox(event)">
+    <div class="lightbox-close" onclick="closeLightbox(event)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+    <img id="lightbox-img" src="" alt="Full Screen Photo">
+  </div>
+
   <!-- ====== JAVASCRIPT ====== -->
   <script>
     // === Lenis Smooth Scroll ===
@@ -1635,6 +1697,25 @@
       });
       btn.addEventListener('mouseleave', () => {
         btn.style.transform = 'translate(0px, 0px)';
+      });
+    });
+
+    // === Lightbox Gallery Logic ===
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.remove('hide');
+    }
+
+    function closeLightbox(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('lightbox').classList.add('hide');
+    }
+
+    document.querySelectorAll('.photo-item-inner img').forEach(img => {
+      img.addEventListener('click', () => {
+        openLightbox(img.src);
       });
     });
 
