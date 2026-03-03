@@ -54,8 +54,9 @@
       --nav-bg: rgba(245, 240, 235, 0.95);
       --hero-brightness: 0.7;
       --hero-gradient: linear-gradient(180deg, rgba(245, 240, 235, 0.2) 0%, rgba(245, 240, 235, 0) 40%, rgba(245, 240, 235, 0.8) 100%);
-      --btn-bg-hover: #1A1510;
-      --btn-text-hover: #F5F0EB;
+      --btn-bg-hover: rgba(26, 21, 16, 0.06);
+      --btn-text-hover: #1A1510;
+      --btn-border-hover: rgba(26, 21, 16, 0.4);
     }
 
     [data-theme="dark"] {
@@ -75,8 +76,9 @@
       --nav-bg: rgba(10, 10, 10, 0.92);
       --hero-brightness: 0.45;
       --hero-gradient: linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.1) 40%, rgba(10, 10, 10, 0.7) 100%);
-      --btn-bg-hover: #F0F0F0;
-      --btn-text-hover: #0A0A0A;
+      --btn-bg-hover: rgba(255, 255, 255, 0.1);
+      --btn-text-hover: #F0F0F0;
+      --btn-border-hover: rgba(255, 255, 255, 0.3);
     }
 
     body {
@@ -460,7 +462,17 @@
 
     .btn:hover {
       color: var(--btn-text-hover);
-      border-color: var(--btn-bg-hover);
+      border-color: var(--btn-border-hover);
+    }
+
+    /* Fixed white hover specifically for Hero button (always on dark photo) */
+    #hero .btn:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    #hero .btn::before {
+      background: rgba(255, 255, 255, 0.15) !important;
     }
 
     .btn span,
