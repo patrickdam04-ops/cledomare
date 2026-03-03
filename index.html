@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cledo Mare — Luxury Stay sul Mare</title>
+  <meta name="description"
+    content="Cledo Mare: due appartamenti esclusivi per vacanze di lusso sul mare. Prenota il tuo soggiorno da sogno." />
+  <meta property="og:title" content="Cledo Mare — Luxury Stay sul Mare" />
+  <meta property="og:description"
+    content="Due appartamenti esclusivi per vacanze di lusso. Scopri Cledo Mare A e Cledo Mare B." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <style>
+    /* ===== RESET ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* ===== THEME VARIABLES ===== */
+    :root {
+      --bg-main: #F5F0EB;
+      --bg-alt: #EDE8E3;
+      --bg-accent: #E5DFD8;
+      --text-primary: #1A1510;
+      --text-secondary: #2C2620;
+      --text-body: #4A4038;
+      --text-label: #6B5F53;
+      --text-muted: #8A7E72;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-subtle: rgba(0, 0, 0, 0.18);
+      --card-bg: rgba(0, 0, 0, 0.04);
+      --card-border: rgba(0, 0, 0, 0.08);
+      --avatar-bg: rgba(0, 0, 0, 0.08);
+      --nav-bg: rgba(245, 240, 235, 0.95);
+      --hero-brightness: 0.7;
+      --hero-gradient: linear-gradient(180deg, rgba(245, 240, 235, 0.2) 0%, rgba(245, 240, 235, 0) 40%, rgba(245, 240, 235, 0.8) 100%);
+      --btn-bg-hover: #1A1510;
+      --btn-text-hover: #F5F0EB;
+    }
+
+    [data-theme="dark"] {
+      --bg-main: #0A0A0A;
+      --bg-alt: #111111;
+      --bg-accent: #050505;
+      --text-primary: #F0F0F0;
+      --text-secondary: #cccccc;
+      --text-body: #999999;
+      --text-label: #666666;
+      --text-muted: #444444;
+      --border-color: rgba(255, 255, 255, 0.04);
+      --border-subtle: rgba(255, 255, 255, 0.15);
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
+      --avatar-bg: rgba(255, 255, 255, 0.08);
+      --nav-bg: rgba(10, 10, 10, 0.92);
+      --hero-brightness: 0.45;
+      --hero-gradient: linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.1) 40%, rgba(10, 10, 10, 0.7) 100%);
+      --btn-bg-hover: #F0F0F0;
+      --btn-text-hover: #0A0A0A;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-primary);
+      background: var(--bg-main);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .t-display {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .t-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+
+    .t-subheading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .t-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .t-body {
+      font-size: clamp(0.9rem, 0.8vw + 0.3rem, 1.05rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-d1 {
+      transition-delay: 0.15s;
+    }
+
+    .reveal-d2 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-d3 {
+      transition-delay: 0.45s;
+    }
+
+    .reveal-d4 {
+      transition-delay: 0.6s;
+    }
+
+    .reveal-d5 {
+      transition-delay: 0.75s;
+    }
+
+    /* Image reveal - clip from bottom */
+    .img-reveal {
+      overflow: hidden;
+    }
+
+    .img-reveal img {
+      transform: scale(1.08);
+      transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-reveal.is-visible img {
+      transform: scale(1);
+    }
+
+    .img-reveal img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Parallax-like subtle float */
+    @keyframes floatUp {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .section {
+      padding: clamp(5rem, 10vw, 10rem) 0;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border-subtle);
+      margin-bottom: 2rem;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.8rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav.scrolled {
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      transition: color 0.4s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 1px;
+      background: var(--text-primary);
+      transition: all 0.4s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        background: var(--bg-main);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav-links.open a {
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        text-transform: none;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    /* ===== BUTTON ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid rgba(61, 53, 45, 0.25);
+      background: transparent;
+      color: var(--text-primary);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.5s ease, border-color 0.5s ease;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--btn-bg-hover);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
+    }
+
+    .btn:hover::before {
+      transform: scaleY(1);
+    }
+
+    .btn:hover {
+      color: var(--btn-text-hover);
+      border-color: var(--btn-bg-hover);
+    }
+
+    .btn span,
+    .btn svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn svg {
+      transition: transform 0.4s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .arrow-svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ===== PHOTO GRID 3x3 (Parallax & Magnetic) ===== */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .photo-grid {
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .photo-grid {
+        gap: 0.3rem;
+      }
+    }
+
+    .photo-item {
+      position: relative;
+    }
+
+    .photo-item-inner {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: clamp(4px, 2vw, 12px);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+
+
+    .photo-item-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.15);
+      /* room for parallax */
+      will-change: transform;
+    }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: var(--bg-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1.2s ease;
+    }
+
+    .preloader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .preloader-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--text-primary);
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: pulse-preloader 2s ease forwards;
+    }
+
+    @keyframes pulse-preloader {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      30% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      70% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+    }
+
+    /* ===== REVIEWS CAROUSEL ===== */
+    .reviews-track-wrapper {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 1.2rem;
+      animation: scrollReviews 70s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes scrollReviews {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .review-card {
+      flex: 0 0 auto;
+      width: 300px;
+      padding: 1.8rem;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .review-card {
+        width: 240px;
+        padding: 0.9rem 1.1rem;
+        border-radius: 12px;
+        gap: 0.4rem;
+      }
+
+      .review-card .review-score {
+        font-size: 1rem;
+      }
+
+      .review-card .review-text {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .review-card .review-author-avatar {
+        width: 26px;
+        height: 26px;
+        font-size: 0.6rem;
+      }
+
+      .review-card .review-author-name {
+        font-size: 0.75rem;
+      }
+
+      .review-card .review-author-source {
+        font-size: 0.5rem;
+      }
+
+      .review-card .review-author {
+        gap: 0.6rem;
+      }
+
+      .reviews-track {
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .review-card {
+        width: 200px;
+        padding: 0.7rem 0.9rem;
+        gap: 0.3rem;
+      }
+
+      .review-card .review-text {
+        font-size: 0.65rem;
+        -webkit-line-clamp: 3;
+      }
+    }
+
+    .review-card .review-score {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .review-card .review-text {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--text-body);
+      font-style: italic;
+    }
+
+    .review-card .review-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .review-card .review-author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--avatar-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-body);
+    }
+
+    .review-card .review-author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-card .review-author-name {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .review-card .review-author-source {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    /* ===== COMFORT LIST ===== */
+    .comfort-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+    }
+
+    @media (min-width: 640px) {
+      .comfort-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .comfort-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-body);
+    }
+
+    .comfort-list li svg {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-primary);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+    }
+
+    .footer a {
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ===== THEME TOGGLE ===== */
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      margin-left: 1.5rem;
+    }
+
+    .theme-toggle:hover {
+      background: var(--text-primary);
+    }
+
+    .theme-toggle:hover svg {
+      stroke: var(--bg-main);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-primary);
+      fill: none;
+      stroke-width: 1.5;
+      transition: stroke 0.4s ease;
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+
+  <!-- ====== PRELOADER ====== -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-text">Cledo Mare</div>
+  </div>
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-brand">Cledo Mare</a>
+    <div style="display:flex; align-items:center;">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#essenza" onclick="closeNav()">L'Essenza</a></li>
+        <li><a href="#cledo-a" onclick="closeNav()">Cledo A</a></li>
+        <li><a href="#cledo-b" onclick="closeNav()">Cledo B</a></li>
+        <li><a href="#recensioni" onclick="closeNav()">Recensioni</a></li>
+        <li><a href="#contatti" onclick="closeNav()">Contatti</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Cambia tema">
+        <svg id="themeIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+      <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <header id="hero"
+    style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+    <div style="position:absolute; inset:0;">
+      <img id="hero-img" src="images copia/cledo-mare-a-terrazza.jpg" alt="Vista Cledo Mare"
+        style="width:100%; height:100%; object-fit:cover; filter:brightness(0.45); transform:scale(1.1); transform-origin:center;" />
+      <div
+        style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.7) 100%);">
+      </div>
+    </div>
+    <div style="position:relative; z-index:10; text-align:center; padding:0 2rem;">
+      <p class="t-label reveal" style="color:#ccc; margin-bottom:2rem;">Un rifugio esclusivo sul mare</p>
+      <h1 class="t-display reveal reveal-d1" style="color:#fff;">Cledo Mare</h1>
+      <p class="t-subheading reveal reveal-d2" style="font-style:italic; color:#ddd; margin-top:1rem; font-weight:300;">
+        Il lusso del tempo, lo spazio del mare.
+      </p>
+      <div class="reveal reveal-d3" style="margin-top:3.5rem;">
+        <a href="#essenza" class="btn" style="backdrop-filter:blur(5px); background:rgba(10,10,10,0.3);">
+          <span>Scopri</span>
+          <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <polyline points="19 12 12 19 5 12" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== ESSENZA ====== -->
+  <section id="essenza" class="section">
+    <div class="container" style="text-align:center; max-width:700px;">
+      <div class="divider reveal" style="margin:0 auto 2rem;"></div>
+      <h2 class="t-heading reveal reveal-d1" style="margin-bottom:2rem;">
+        Ogni dettaglio è<br><span style="font-style:italic; color:#ccc;">un respiro profondo.</span>
+      </h2>
+      <p class="t-body reveal reveal-d2">
+        Cledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:
+        ambienti luminosi e raffinati che incorniciano il panorama, materiali scelti con cura,
+        e un design minimale che celebra l'essenza dell'abitare sul mare.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== CLEDO MARE A ====== -->
+  <section id="cledo-a" class="section" style="background:#111;">
+    <div class="container">
+      <!-- Heading -->
+      <div
+        style="display:grid; grid-template-columns:1fr; gap:3rem; margin-bottom:clamp(3rem,5vw,5rem); align-items:end;"
+        class="apt-header">
+        <div>
+          <p class="t-label reveal" style="margin-bottom:1rem;">Prima residenza · Via Francesco Petrarca, 31</p>
+          <h2 class="t-heading reveal reveal-d1">Cledo Mare A</h2>
+        </div>
+        <div style="max-width:500px;">
+          <p class="t-body reveal reveal-d2">
+            Fronte spiaggia, a soli 500 metri da Spiaggia di Pescara. La struttura presenta una terrazza con vista
+            città, WiFi gratuito, aria condizionata, camera da letto, soggiorno e cucina completa con forno e
+            frigorifero.
+          </p>
+          <p class="t-body reveal reveal-d3" style="margin-top:0.8rem; font-size:0.8rem; color:#9B8E80;">
+            A pochi passi da Casa Natale di D'Annunzio e Porto di Pescara. Aeroporto a 9 km.
+          </p>
+        </div>
+      </div>
+
+      <!-- Photo Grid 3x3 Parallax -->
+      <div class="photo-grid">
+        <div class="photo-item reveal">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-salotto.jpg" alt="Salotto"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d1">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucina.jpg" alt="Cucina"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d2">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucinadettaglio.jpg"
+              alt="Dettaglio" loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d1">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimoniale.jpg"
+              alt="Camera" loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d2">
+          <div class="photo-item-inner"><img class="prx-img"
+              src="images copia/cledo-mare-a-cameramatrimoniale-visualepiuampia.jpg" alt="Camera ampia"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d3">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimonialeee.jpg"
+              alt="Bagno" loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d2">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-terrazzaa.jpg"
+              alt="Terrazza" loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d3">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-bagno.jpg" alt="Bagno"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d4">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-divanodellasala.jpg"
+              alt="Divano" loading="lazy" /></div>
+        </div>
+      </div>
+
+      <!-- Comfort & CTA -->
+      <div
+        style="display:grid; grid-template-columns:1fr; gap:3rem; margin-top:clamp(3rem,5vw,5rem); align-items:start;"
+        class="apt-footer">
+        <div>
+          <ul class="comfort-list reveal">
+            <li>
+              <svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Living ampio e luminoso
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+              </svg>
+              Terrazza panoramica sul mare
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24">
+                <path d="M2 4v16" />
+                <path d="M2 8h18a2 2 0 012 2v10" />
+                <path d="M2 17h20" />
+                <path d="M6 8v9" />
+              </svg>
+              Camera matrimoniale di design
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24">
+                <path d="M18 8h1a4 4 0 010 8h-1" />
+                <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
+              </svg>
+              Cucina moderna completa
+            </li>
+          </ul>
+        </div>
+        <div class="reveal reveal-d1">
+          <a href="https://www.booking.com/hotel/it/cledo-mare-a-luxury-stay.it.html" class="btn" target="_blank"
+            rel="noopener">
+            <span>Prenota su Booking</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @media (min-width: 768px) {
+
+      .apt-header,
+      .apt-footer {
+        grid-template-columns: 1fr 1fr !important;
+      }
+    }
+  </style>
+
+  <!-- ====== CLEDO MARE B ====== -->
+  <section id="cledo-b" class="section" style="background:#0A0A0A;">
+    <div class="container">
+      <!-- Heading -->
+      <div
+        style="display:grid; grid-template-columns:1fr; gap:3rem; margin-bottom:clamp(3rem,5vw,5rem); align-items:end;"
+        class="apt-header">
+        <div>
+          <p class="t-label reveal" style="margin-bottom:1rem;">Seconda residenza · Via Francesco Petrarca, 27</p>
+          <h2 class="t-heading reveal reveal-d1">Cledo Mare B</h2>
+        </div>
+        <div style="max-width:500px;">
+          <p class="t-body reveal reveal-d2">
+            A 500 metri da Spiaggia di Pescara e 1,4 km dalla Stazione Centrale. WiFi gratuito, terrazza, aria
+            condizionata, camera da letto, soggiorno, cucina con forno e bagno con bidet e asciugacapelli.
+          </p>
+          <p class="t-body reveal reveal-d3" style="margin-top:0.8rem; font-size:0.8rem; color:#9B8E80;">
+            Nelle vicinanze: Casa Natale di D'Annunzio, Porto di Pescara. Aeroporto a 9 km.
+          </p>
+        </div>
+      </div>
+
+      <!-- Photo Grid 3x3 Parallax -->
+      <div class="photo-grid">
+        <div class="photo-item reveal">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cameramatrimoniale.jpg"
+              alt="Camera" loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d1">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cucina.jpg" alt="Cucina"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d2">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salotto.jpg" alt="Salotto"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d1">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagno.jpg" alt="Bagno"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d2">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnoo.jpg" alt="Bagno"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d3">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnooo.jpg" alt="Bagno"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d2">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-terrazza.jpg" alt="Terrazza"
+              loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d3">
+          <div class="photo-item-inner"><img class="prx-img"
+              src="images copia/cledo-mare-b-armadiocameramatrimoniale.jpg" alt="Armadio" loading="lazy" /></div>
+        </div>
+        <div class="photo-item reveal reveal-d4">
+          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salottooo.jpg" alt="Salotto"
+              loading="lazy" /></div>
+        </div>
+      </div>
+
+      <!-- Comfort & CTA -->
+      <div
+        style="display:grid; grid-template-columns:1fr; gap:3rem; margin-top:clamp(3rem,5vw,5rem); align-items:start;"
+        class="apt-footer">
+        <div>
+          <ul class="comfort-list reveal">
+            <li>
+              <svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              Ambiente intimo e raffinato
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              </svg>
+              Bagno curato ed elegante
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24">
+                <path d="M2 4v16" />
+                <path d="M2 8h18a2 2 0 012 2v10" />
+                <path d="M2 17h20" />
+                <path d="M6 8v9" />
+              </svg>
+              Camera matrimoniale premium
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24">
+                <rect x="1" y="3" width="15" height="13" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+              </svg>
+              A 50m dalla spiaggia
+            </li>
+          </ul>
+        </div>
+        <div class="reveal reveal-d1">
+          <a href="https://www.booking.com/hotel/it/cledo-mare-b.it.html" class="btn" target="_blank" rel="noopener">
+            <span>Prenota su Booking</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== REVIEWS (SCROLLING INFINITE) ====== -->
+  <section id="recensioni" class="section" style="background:#111;">
+    <div class="container" style="margin-bottom:clamp(3rem,5vw,5rem);">
+      <div style="text-align:center; max-width:600px; margin:0 auto;">
+        <div class="divider reveal" style="margin:0 auto 2rem;"></div>
+        <p class="t-label reveal reveal-d1" style="margin-bottom:1rem;">I nostri ospiti</p>
+        <h2 class="t-heading reveal reveal-d2" style="font-style:italic;">
+          Le loro parole.
+        </h2>
+
+      </div>
+    </div>
+
+    <!-- Auto-scrolling reviews -->
+    <div class="reviews-track-wrapper reveal">
+      <div class="reviews-track" id="reviewsTrack">
+        <!-- Set 1 -->
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Tutto perfetto. Ottima posizione, 50 mt dalla spiaggia e vicino al centro storico.
+            L'appartamento è moderno e ben arredato."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">C</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Cinzia</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Posizione strategica, comodissimo sia alla spiaggia sia al centro. Giovanni e Antonia
+            sono stati deliziosi nell'accoglierci e nel farci sentire come a casa."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">M</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Miky</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Struttura funzionale con tutto il necessario per un soggiorno in relax. Spazi adeguati
+            e ambiente rilassante. Menzione speciale per il materasso."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">A</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Alessandro</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Tutto perfetto dalla pulizia alla posizione ai signori che ci hanno accolto.
+            Appartamento nuovo con tutti i confort."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">F</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Francesca</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Clean and new apartment. Everything works perfectly, near the beach and very
+            comfortable for a family stay."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">W</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Wafaa</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Appartamento arredato con gusto, pulitissimo e in posizione comoda sia per il mare che
+            per il centro. Gentilissimi i proprietari."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">R</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Roberto</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">9.0</div>
+          <p class="review-text">"Almost everything is new and works well. Near the beach and within walking distance of
+            the center. Highly recommended."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">A</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Artem</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">9.0</div>
+          <p class="review-text">"Appartamento nuovo, pulito e funzionale. Host molto disponibile. Posizione ottima
+            vicino al mare."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">S</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Silvia</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Set 2 (duplicated for infinite scroll) -->
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Tutto perfetto. Ottima posizione, 50 mt dalla spiaggia e vicino al centro storico.
+            L'appartamento è moderno e ben arredato."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">C</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Cinzia</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Posizione strategica, comodissimo sia alla spiaggia sia al centro. Giovanni e Antonia
+            sono stati deliziosi nell'accoglierci e nel farci sentire come a casa."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">M</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Miky</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Struttura funzionale con tutto il necessario per un soggiorno in relax. Spazi adeguati
+            e ambiente rilassante. Menzione speciale per il materasso."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">A</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Alessandro</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Tutto perfetto dalla pulizia alla posizione ai signori che ci hanno accolto.
+            Appartamento nuovo con tutti i confort."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">F</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Francesca</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Clean and new apartment. Everything works perfectly, near the beach and very
+            comfortable for a family stay."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">W</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Wafaa</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">10</div>
+          <p class="review-text">"Appartamento arredato con gusto, pulitissimo e in posizione comoda sia per il mare che
+            per il centro. Gentilissimi i proprietari."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">R</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Roberto</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">9.0</div>
+          <p class="review-text">"Almost everything is new and works well. Near the beach and within walking distance of
+            the center. Highly recommended."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">A</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Artem</span>
+              <span class="review-author-source">Cledo Mare A · Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-score">9.0</div>
+          <p class="review-text">"Appartamento nuovo, pulito e funzionale. Host molto disponibile. Posizione ottima
+            vicino al mare."</p>
+          <div class="review-author">
+            <div class="review-author-avatar">S</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Silvia</span>
+              <span class="review-author-source">Cledo Mare B · Booking.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer id="contatti" class="section footer"
+    style="background:#050505; border-top:1px solid rgba(255,255,255,0.04); padding-bottom:3rem;">
+    <div class="container" style="text-align:center;">
+
+      <!-- Brand -->
+      <div class="reveal" style="margin-bottom:3rem;">
+        <h2 class="t-subheading" style="font-style:italic; margin-bottom:1rem; font-size:clamp(1.8rem, 3vw, 2.5rem);">
+          Cledo Mare</h2>
+        <p style="color:#7A6F63; font-size:0.85rem; max-width:400px; margin:0 auto; line-height:1.8;">
+          Il lusso discreto, l'eleganza che sussurra.<br>Due residenze sul mare pensate per chi sa apprezzare la
+          bellezza.
+        </p>
+      </div>
+
+      <!-- Social -->
+      <div class="reveal reveal-d1" style="display:flex; justify-content:center; gap:2rem; margin-bottom:3rem;">
+        <a href="https://www.instagram.com/cledomareluxurystay/" target="_blank" rel="noopener"
+          style="color:#7A6F63; transition:color 0.3s;" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Links -->
+      <div class="reveal reveal-d2"
+        style="display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:3rem;">
+        <a href="#cledo-a"
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Cledo
+          A</a>
+        <a href="#cledo-b"
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Cledo
+          B</a>
+        <a href="#recensioni"
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Recensioni</a>
+        <a href="https://www.booking.com/hotel/it/cledo-mare-a-luxury-stay.it.html" target="_blank" rel="noopener"
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Prenota A</a>
+        <a href="https://www.booking.com/hotel/it/cledo-mare-b.it.html" target="_blank" rel="noopener"
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Prenota B</a>
+      </div>
+
+      <!-- Divider -->
+      <div style="width:40px; height:1px; background:rgba(0,0,0,0.1); margin:0 auto 2rem;"></div>
+
+      <!-- Copyright -->
+      <p style="color:#A09688; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase;">© 2026 Cledo Mare ·
+        Tutti i diritti riservati</p>
+    </div>
+  </footer>
+
+  <!-- ====== JAVASCRIPT ====== -->
+  <script>
+    // === Lenis Smooth Scroll ===
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+
+    // === Preloader Logic ===
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) preloader.classList.add('hide');
+      }, 1500);
+    });
+
+    // === Hero & Grid Parallax ===
+    const heroImg = document.getElementById('hero-img');
+    const prxImgs = document.querySelectorAll('.prx-img');
+
+    lenis.on('scroll', (e) => {
+      // Hero
+      if (heroImg && window.scrollY < window.innerHeight) {
+        heroImg.style.transform = `translateY(${window.scrollY * 0.4}px) scale(1.1)`;
+      }
+
+      // Grids
+      prxImgs.forEach((img, i) => {
+        const rect = img.parentElement.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const speed = 0.07; // All images move equally
+          const center = window.innerHeight / 2;
+          const dist = (rect.top + rect.height / 2) - center;
+          img.style.transform = `translateY(${-dist * speed}px) scale(1.15)`;
+        }
+      });
+    });
+
+    // Anchor clicks
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        const el = document.querySelector(this.getAttribute('href'));
+        if (el) lenis.scrollTo(el, { offset: -80 });
+      });
+    });
+
+    // === Intersection Observer ===
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .img-reveal').forEach(el => observer.observe(el));
+
+    // === Navbar ===
+    const nav = document.getElementById('nav');
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 60);
+      nav.classList.toggle('hidden', y > lastY && y > 250);
+      if (y < lastY) nav.classList.remove('hidden');
+      lastY = y;
+    });
+
+    // === Mobile Nav ===
+    function toggleNav() {
+      document.getElementById('navToggle').classList.toggle('open');
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('navToggle').classList.remove('open');
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // === Theme Toggle ===
+    function toggleTheme() {
+      const body = document.body;
+      const isDark = body.getAttribute('data-theme') === 'dark';
+      body.setAttribute('data-theme', isDark ? 'sand' : 'dark');
+
+      // Update icon (moon ↔ sun)
+      const icon = document.getElementById('themeIcon');
+      if (!isDark) {
+        icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+      } else {
+        icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />';
+      }
+
+      // Update inline-styled elements
+      const heroImg = document.getElementById('hero-img');
+      const heroOverlay = heroImg.parentElement.querySelector('div');
+      const sections = {
+        'cledo-a': isDark ? '#F5F0EB' : '#111',
+        'cledo-b': isDark ? '#EDE8E3' : '#0A0A0A',
+        'essenza': isDark ? '#F5F0EB' : '#0A0A0A',
+        'recensioni': isDark ? '#EDE8E3' : '#111',
+      };
+
+      // Hero
+      heroImg.style.filter = `brightness(${isDark ? 0.7 : 0.45})`;
+      heroOverlay.style.background = isDark
+        ? 'linear-gradient(180deg, rgba(245,240,235,0.2) 0%, rgba(245,240,235,0) 40%, rgba(245,240,235,0.8) 100%)'
+        : 'linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.7) 100%)';
+
+      // Update hero text inline colors
+      const heroLabel = document.querySelector('#hero .t-label');
+      const heroTitle = document.querySelector('#hero .t-display');
+      const heroSub = document.querySelector('#hero .t-subheading');
+      const heroBtn = document.querySelector('#hero .btn');
+      if (heroLabel) heroLabel.style.color = '#ccc';
+      if (heroTitle) heroTitle.style.color = '#fff';
+      if (heroSub) heroSub.style.color = '#ddd';
+      if (heroBtn) heroBtn.style.background = 'rgba(10,10,10,0.3)';
+
+      // Essenza span
+      const essSpan = document.querySelector('#essenza .t-heading span');
+      if (essSpan) essSpan.style.color = isDark ? '#6B5F53' : '#ccc';
+
+      // Section backgrounds  
+      Object.entries(sections).forEach(([id, bg]) => {
+        const el = document.getElementById(id);
+        if (el) el.style.background = bg;
+      });
+
+      // Footer
+      const footer = document.querySelector('footer');
+      if (footer) {
+        footer.style.background = isDark ? '#E5DFD8' : '#050505';
+        footer.style.borderTopColor = isDark ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.04)';
+      }
+
+      // Inline-color labels (address subtitles)
+      document.querySelectorAll('[style*="color:#9B8E80"]').forEach(el => {
+        el.style.color = isDark ? '#9B8E80' : '#666';
+      });
+    }
+  </script>
+
+</body>
+
+</html>
