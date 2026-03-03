@@ -890,7 +890,8 @@
         Il lusso del tempo, lo spazio del mare.
       </p>
       <div class="reveal reveal-d3" style="margin-top:3.5rem;">
-        <a href="#essenza" class="btn" style="backdrop-filter:blur(5px); background:rgba(10,10,10,0.3);">
+        <a href="#essenza" class="btn"
+          style="backdrop-filter:blur(5px); background:rgba(10,10,10,0.3); color:#fff; border-color:rgba(255,255,255,0.4);">
           <span>Scopri</span>
           <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round">
@@ -1562,7 +1563,11 @@
       if (heroLabel) heroLabel.style.color = '#ccc';
       if (heroTitle) heroTitle.style.color = '#fff';
       if (heroSub) heroSub.style.color = '#ddd';
-      if (heroBtn) heroBtn.style.background = 'rgba(10,10,10,0.3)';
+      if (heroBtn) {
+        heroBtn.style.background = 'rgba(10,10,10,0.3)';
+        heroBtn.style.color = '#fff';
+        heroBtn.style.borderColor = 'rgba(255,255,255,0.4)';
+      }
 
       // Essenza span
       const essSpan = document.querySelector('#essenza .t-heading span');
