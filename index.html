@@ -166,24 +166,26 @@
     }
 
     .nav-brand .site-logo {
-      height: 28px;
+      height: 48px;
     }
 
     .preloader-text .site-logo {
-      height: clamp(60px, 12vw, 120px);
+      height: clamp(100px, 15vw, 180px);
       animation: pulse-preloader 2s ease forwards;
     }
 
     .footer .site-logo {
-      height: clamp(45px, 8vw, 65px);
+      height: clamp(70px, 10vw, 110px);
       margin-bottom: 1.5rem;
     }
 
-    /* Smart Blending Magic for JPGs: Assuming white bg, dark text */
+    /* Smart Blending Magic for JPGs */
     /* Light Backgrounds */
     [data-theme="sand"] .footer .site-logo,
     [data-theme="sand"] .nav.scrolled .site-logo {
       mix-blend-mode: multiply;
+      /* Burn the gray background into pure white to make it fully transparent */
+      filter: grayscale(100%) contrast(3) brightness(1.2);
     }
 
     /* Dark Backgrounds: Invert text colors and use screen to drop white bg */
@@ -192,7 +194,8 @@
     .nav:not(.scrolled) .site-logo,
     [data-theme="dark"] .nav.scrolled .site-logo {
       mix-blend-mode: screen;
-      filter: invert(1) grayscale(100%) brightness(1.5);
+      /* Invert makes the bright bg dark gray. Contrast crushes dark gray to pure black so the screen blend drops it perfectly! */
+      filter: invert(1) grayscale(100%) contrast(4) brightness(1.4);
     }
 
     /* ===== ANIMATIONS ===== */
