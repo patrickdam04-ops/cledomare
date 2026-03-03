@@ -15,12 +15,19 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+  </noscript>
 
   <!-- Lenis Smooth Scroll -->
-  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
   <style>
     /* ===== RESET ===== */
@@ -867,12 +874,12 @@
   <!-- ====== PRELOADER ====== -->
   <div id="preloader" class="preloader">
     <div class="preloader-text">
-      <img src="images copia/Adobe Express - file.png" class="site-logo" alt="Cledo Mare" />
+      <img src="images copia/Adobe Express - file.png" class="site-logo" alt="Logo" width="400" height="200" />
     </div>
   </div>
   <nav class="nav" id="nav">
     <a href="#" class="nav-brand">
-      <img src="images copia/Adobe Express - file.png" class="site-logo" alt="Logo" />
+      <img src="images copia/Adobe Express - file.png" class="site-logo" alt="Logo" width="400" height="200" />
       <span>Cledo Mare</span>
     </a>
     <div style="display:flex; align-items:center;">
@@ -907,7 +914,8 @@
     style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden;">
     <div style="position:absolute; inset:0;">
       <img id="hero-img" src="images copia/cledo-mare-a-terrazza.jpg" alt="Vista Cledo Mare"
-        style="width:100%; height:100%; object-fit:cover; filter:brightness(0.45); transform:scale(1.1); transform-origin:center;" />
+        style="width:100%; height:100%; object-fit:cover; filter:brightness(0.45); transform:scale(1.1); transform-origin:center;"
+        width="1920" height="1080" />
       <div
         style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.1) 40%, rgba(10,10,10,0.7) 100%);">
       </div>
@@ -975,41 +983,40 @@
       <!-- Photo Grid 3x3 Parallax -->
       <div class="photo-grid">
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-salotto.jpg" alt="Salotto"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-salotto.jpg" alt="Salotto" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucina.jpg" alt="Cucina"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-cucina.jpg" alt="Cucina" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucinadettaglio.jpg"
-              alt="Dettaglio" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-cucinadettaglio.jpg" alt="Dettaglio" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimoniale.jpg"
-              alt="Camera" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-cameramatrimoniale.jpg" alt="Camera" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images copia/cledo-mare-a-cameramatrimoniale-visualepiuampia.jpg" alt="Camera ampia"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-cameramatrimoniale-visualepiuampia.jpg" alt="Camera ampia" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimonialeee.jpg"
-              alt="Bagno" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-cameramatrimonialeee.jpg" alt="Bagno" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-terrazzaa.jpg"
-              alt="Terrazza" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-terrazzaa.jpg" alt="Terrazza" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-bagno.jpg" alt="Bagno"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-bagno.jpg" alt="Bagno" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-divanodellasala.jpg"
-              alt="Divano" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-a-divanodellasala.jpg" alt="Divano" /></div>
         </div>
       </div>
 
@@ -1101,40 +1108,40 @@
       <!-- Photo Grid 3x3 Parallax -->
       <div class="photo-grid">
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cameramatrimoniale.jpg"
-              alt="Camera" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-cameramatrimoniale.jpg" alt="Camera" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cucina.jpg" alt="Cucina"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-cucina.jpg" alt="Cucina" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salotto.jpg" alt="Salotto"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-salotto.jpg" alt="Salotto" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagno.jpg" alt="Bagno"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-bagno.jpg" alt="Bagno" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnoo.jpg" alt="Bagno"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-bagnoo.jpg" alt="Bagno" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnooo.jpg" alt="Bagno"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-bagnooo.jpg" alt="Bagno" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-terrazza.jpg" alt="Terrazza"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-terrazza.jpg" alt="Terrazza" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images copia/cledo-mare-b-armadiocameramatrimoniale.jpg" alt="Armadio" loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-armadiocameramatrimoniale.jpg" alt="Armadio" /></div>
         </div>
         <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salottooo.jpg" alt="Salotto"
-              loading="lazy" /></div>
+          <div class="photo-item-inner"><img loading="lazy" width="800" height="800" class="prx-img"
+              src="images copia/cledo-mare-b-salottooo.jpg" alt="Salotto" /></div>
         </div>
       </div>
 
