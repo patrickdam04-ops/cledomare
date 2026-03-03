@@ -199,25 +199,18 @@
       transition-delay: 0.45s;
     }
 
-    /* Photo Curtain Reveal */
-    .curtain-reveal {
-      position: relative;
-      overflow: hidden;
+    /* Photo Blur Reveal */
+    .blur-reveal {
+      opacity: 0;
+      filter: blur(25px);
+      transform: scale(0.96);
+      transition: all 1.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    .curtain-reveal::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--bg-alt);
-      transform: scaleX(1);
-      transform-origin: right;
-      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-      z-index: 2;
-    }
-
-    .curtain-reveal.is-visible::after {
-      transform: scaleX(0);
+    .blur-reveal.is-visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: scale(1);
     }
 
     /* Magnetic Button */
@@ -957,40 +950,40 @@
 
       <!-- Photo Grid 3x3 Parallax -->
       <div class="photo-grid">
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-salotto.jpg" alt="Salotto"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucina.jpg" alt="Cucina"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucinadettaglio.jpg"
               alt="Dettaglio" loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimoniale.jpg"
               alt="Camera" loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img"
               src="images copia/cledo-mare-a-cameramatrimoniale-visualepiuampia.jpg" alt="Camera ampia"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimonialeee.jpg"
               alt="Bagno" loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-terrazzaa.jpg"
               alt="Terrazza" loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-bagno.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-divanodellasala.jpg"
               alt="Divano" loading="lazy" /></div>
         </div>
@@ -1083,39 +1076,39 @@
 
       <!-- Photo Grid 3x3 Parallax -->
       <div class="photo-grid">
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cameramatrimoniale.jpg"
               alt="Camera" loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cucina.jpg" alt="Cucina"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salotto.jpg" alt="Salotto"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagno.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnoo.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnooo.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-terrazza.jpg" alt="Terrazza"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img"
               src="images copia/cledo-mare-b-armadiocameramatrimoniale.jpg" alt="Armadio" loading="lazy" /></div>
         </div>
-        <div class="photo-item curtain-reveal">
+        <div class="photo-item blur-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salottooo.jpg" alt="Salotto"
               loading="lazy" /></div>
         </div>
@@ -1514,7 +1507,7 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal, .img-reveal, .text-reveal, .curtain-reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .img-reveal, .text-reveal, .blur-reveal').forEach(el => observer.observe(el));
 
     // === Navbar ===
     const nav = document.getElementById('nav');
