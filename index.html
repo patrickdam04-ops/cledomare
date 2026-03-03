@@ -90,6 +90,19 @@
       transition: background 0.6s ease, color 0.6s ease;
     }
 
+    /* Film Grain Overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px 180px;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -154,6 +167,61 @@
     .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Text Mask Reveal */
+    .text-reveal {
+      overflow: hidden;
+      display: block;
+    }
+
+    .text-reveal-inner {
+      display: block;
+      transform: translateY(105%);
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .text-reveal.is-visible .text-reveal-inner {
+      transform: translateY(0);
+    }
+
+    .text-reveal-d1 .text-reveal-inner {
+      transition-delay: 0.15s;
+    }
+
+    .text-reveal-d2 .text-reveal-inner {
+      transition-delay: 0.3s;
+    }
+
+    .text-reveal-d3 .text-reveal-inner {
+      transition-delay: 0.45s;
+    }
+
+    /* Photo Curtain Reveal */
+    .curtain-reveal {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .curtain-reveal::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--bg-alt);
+      transform: scaleX(1);
+      transform-origin: right;
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 2;
+    }
+
+    .curtain-reveal.is-visible::after {
+      transform: scaleX(0);
+    }
+
+    /* Magnetic Button */
+    .btn,
+    .theme-toggle {
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .reveal-d1 {
@@ -686,6 +754,18 @@
       fill: none;
     }
 
+    /* ===== DROP CAP ===== */
+    .drop-cap {
+      float: left;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      line-height: 0.8;
+      padding-right: 0.12em;
+      padding-top: 0.08em;
+      color: var(--text-primary);
+      font-weight: 400;
+    }
+
     /* ===== FOOTER ===== */
     .footer-grid {
       display: grid;
@@ -826,11 +906,13 @@
   <section id="essenza" class="section">
     <div class="container" style="text-align:center; max-width:700px;">
       <div class="divider reveal" style="margin:0 auto 2rem;"></div>
-      <h2 class="t-heading reveal reveal-d1" style="margin-bottom:2rem;">
-        Ogni dettaglio è<br><span style="font-style:italic; color:#ccc;">un respiro profondo.</span>
+      <h2 class="t-heading" style="margin-bottom:2rem;">
+        <span class="text-reveal"><span class="text-reveal-inner">Ogni dettaglio è</span></span>
+        <span class="text-reveal text-reveal-d1"><span class="text-reveal-inner"
+            style="font-style:italic; color:#ccc;">un respiro profondo.</span></span>
       </h2>
-      <p class="t-body reveal reveal-d2">
-        Cledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:
+      <p class="t-body reveal reveal-d2" style="text-align:left;">
+        <span class="drop-cap">C</span>ledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:
         ambienti luminosi e raffinati che incorniciano il panorama, materiali scelti con cura,
         e un design minimale che celebra l'essenza dell'abitare sul mare.
       </p>
@@ -862,40 +944,40 @@
 
       <!-- Photo Grid 3x3 Parallax -->
       <div class="photo-grid">
-        <div class="photo-item reveal">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-salotto.jpg" alt="Salotto"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d1">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucina.jpg" alt="Cucina"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d2">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cucinadettaglio.jpg"
               alt="Dettaglio" loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d1">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimoniale.jpg"
               alt="Camera" loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d2">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img"
               src="images copia/cledo-mare-a-cameramatrimoniale-visualepiuampia.jpg" alt="Camera ampia"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d3">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-cameramatrimonialeee.jpg"
               alt="Bagno" loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d2">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-terrazzaa.jpg"
               alt="Terrazza" loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d3">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-bagno.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d4">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-a-divanodellasala.jpg"
               alt="Divano" loading="lazy" /></div>
         </div>
@@ -988,39 +1070,39 @@
 
       <!-- Photo Grid 3x3 Parallax -->
       <div class="photo-grid">
-        <div class="photo-item reveal">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cameramatrimoniale.jpg"
               alt="Camera" loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d1">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-cucina.jpg" alt="Cucina"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d2">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salotto.jpg" alt="Salotto"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d1">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagno.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d2">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnoo.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d3">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-bagnooo.jpg" alt="Bagno"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d2">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-terrazza.jpg" alt="Terrazza"
               loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d3">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img"
               src="images copia/cledo-mare-b-armadiocameramatrimoniale.jpg" alt="Armadio" loading="lazy" /></div>
         </div>
-        <div class="photo-item reveal reveal-d4">
+        <div class="photo-item curtain-reveal">
           <div class="photo-item-inner"><img class="prx-img" src="images copia/cledo-mare-b-salottooo.jpg" alt="Salotto"
               loading="lazy" /></div>
         </div>
@@ -1419,7 +1501,7 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal, .img-reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .img-reveal, .text-reveal, .curtain-reveal').forEach(el => observer.observe(el));
 
     // === Navbar ===
     const nav = document.getElementById('nav');
@@ -1504,6 +1586,20 @@
         el.style.color = isDark ? '#9B8E80' : '#666';
       });
     }
+    // === Magnetic Buttons ===
+    const magnetics = document.querySelectorAll('.btn, .theme-toggle');
+    magnetics.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+      });
+    });
+
   </script>
 
 </body>
