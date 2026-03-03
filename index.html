@@ -40,7 +40,7 @@
     :root {
       --bg-main: #F5F0EB;
       --bg-alt: #E6DFD7;
-      --bg-accent: #DCD3C9;
+      --bg-accent: #EFEAE4;
       --text-primary: #1A1510;
       --text-secondary: #2C2620;
       --text-body: #4A4038;
@@ -202,7 +202,7 @@
     /* Photo Blur Reveal */
     .blur-reveal {
       opacity: 0;
-      filter: blur(12px);
+      filter: blur(5px);
       transform: scale(0.96);
       transition: all 1.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
@@ -1549,8 +1549,8 @@
       const heroOverlay = heroImg.parentElement.querySelector('div');
       const sections = {
         'cledo-a': isDark ? '#F5F0EB' : '#111',
-        'cledo-b': isDark ? '#DCD3C9' : '#0A0A0A',
-        'essenza': isDark ? '#DCD3C9' : '#0A0A0A',
+        'cledo-b': isDark ? '#EFEAE4' : '#0A0A0A',
+        'essenza': isDark ? '#EFEAE4' : '#0A0A0A',
         'recensioni': isDark ? '#F5F0EB' : '#111',
       };
 
@@ -1587,7 +1587,7 @@
       // Footer
       const footer = document.querySelector('footer');
       if (footer) {
-        footer.style.background = isDark ? '#DCD3C9' : '#050505';
+        footer.style.background = isDark ? '#EFEAE4' : '#050505';
         footer.style.borderTopColor = isDark ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.04)';
       }
 
