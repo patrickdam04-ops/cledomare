@@ -256,6 +256,12 @@
       font-size: 1.1rem;
       font-style: italic;
       letter-spacing: 0.05em;
+      color: #fff;
+      transition: color 0.6s ease;
+    }
+
+    .nav.scrolled .nav-brand {
+      color: var(--text-primary);
     }
 
     .nav-links {
@@ -268,11 +274,19 @@
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-label);
+      color: rgba(255, 255, 255, 0.7);
       transition: color 0.4s ease;
     }
 
     .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav.scrolled .nav-links a {
+      color: var(--text-label);
+    }
+
+    .nav.scrolled .nav-links a:hover {
       color: var(--text-primary);
     }
 
@@ -288,8 +302,12 @@
     .nav-toggle span {
       width: 24px;
       height: 1px;
-      background: var(--text-primary);
+      background: #fff;
       transition: all 0.4s ease;
+    }
+
+    .nav.scrolled .nav-toggle span {
+      background: var(--text-primary);
     }
 
     .nav-toggle.open span:nth-child(1) {
@@ -694,7 +712,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       background: transparent;
       cursor: pointer;
       display: flex;
@@ -705,20 +723,37 @@
     }
 
     .theme-toggle:hover {
-      background: var(--text-primary);
+      background: #fff;
     }
 
     .theme-toggle:hover svg {
-      stroke: var(--bg-main);
+      stroke: #0A0A0A;
     }
 
     .theme-toggle svg {
       width: 16px;
       height: 16px;
-      stroke: var(--text-primary);
+      stroke: #fff;
       fill: none;
       stroke-width: 1.5;
       transition: stroke 0.4s ease;
+    }
+
+    /* Scrolled state for toggle */
+    .nav.scrolled .theme-toggle {
+      border: 1px solid var(--border-subtle);
+    }
+
+    .nav.scrolled .theme-toggle:hover {
+      background: var(--text-primary);
+    }
+
+    .nav.scrolled .theme-toggle:hover svg {
+      stroke: var(--bg-main);
+    }
+
+    .nav.scrolled .theme-toggle svg {
+      stroke: var(--text-primary);
     }
   </style>
 </head>
