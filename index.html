@@ -158,46 +158,6 @@
       color: var(--text-body);
     }
 
-    /* ===== LOGO SMART INTEGRATION ===== */
-    .site-logo {
-      width: auto;
-      object-fit: contain;
-      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .nav-brand .site-logo {
-      height: 48px;
-    }
-
-    .preloader-text .site-logo {
-      height: clamp(100px, 15vw, 180px);
-      animation: pulse-preloader 2s ease forwards;
-    }
-
-    .footer .site-logo {
-      height: clamp(70px, 10vw, 110px);
-      margin-bottom: 1.5rem;
-    }
-
-    /* Smart Blending Magic for JPGs */
-    /* Light Backgrounds */
-    [data-theme="sand"] .footer .site-logo,
-    [data-theme="sand"] .nav.scrolled .site-logo {
-      mix-blend-mode: multiply;
-      /* Burn the gray background into pure white to make it fully transparent */
-      filter: grayscale(100%) contrast(3) brightness(1.2);
-    }
-
-    /* Dark Backgrounds: Invert text colors and use screen to drop white bg */
-    [data-theme="dark"] .footer .site-logo,
-    [data-theme="dark"] .preloader-text .site-logo,
-    .nav:not(.scrolled) .site-logo,
-    [data-theme="dark"] .nav.scrolled .site-logo {
-      mix-blend-mode: screen;
-      /* Invert makes the bright bg dark gray. Contrast crushes dark gray to pure black so the screen blend drops it perfectly! */
-      filter: invert(1) grayscale(100%) contrast(4) brightness(1.4);
-    }
-
     /* ===== ANIMATIONS ===== */
     .reveal {
       opacity: 0;
@@ -355,8 +315,11 @@
     }
 
     .nav-brand {
-      display: flex;
-      align-items: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: #fff;
       transition: color 0.6s ease;
     }
 
@@ -884,14 +847,10 @@
 
   <!-- ====== PRELOADER ====== -->
   <div id="preloader" class="preloader">
-    <div class="preloader-text">
-      <img src="images copia/logo.JPG" class="site-logo" alt="Cledo Mare" />
-    </div>
+    <div class="preloader-text">Cledo Mare</div>
   </div>
   <nav class="nav" id="nav">
-    <a href="#" class="nav-brand">
-      <img src="images copia/logo.JPG" class="site-logo" alt="Cledo Mare" />
-    </a>
+    <a href="#" class="nav-brand">Cledo Mare</a>
     <div style="display:flex; align-items:center;">
       <ul class="nav-links" id="navLinks">
         <li><a href="#essenza" onclick="closeNav()">L'Essenza</a></li>
@@ -1441,7 +1400,8 @@
 
       <!-- Brand -->
       <div class="reveal" style="margin-bottom:3rem;">
-        <img src="images copia/logo.JPG" class="site-logo" alt="Cledo Mare" />
+        <h2 class="t-subheading" style="font-style:italic; margin-bottom:1rem; font-size:clamp(1.8rem, 3vw, 2.5rem);">
+          Cledo Mare</h2>
         <p style="color:#7A6F63; font-size:0.85rem; max-width:400px; margin:0 auto; line-height:1.8;">
           Il lusso discreto, l'eleganza che sussurra.<br>Due residenze sul mare pensate per chi sa apprezzare la
           bellezza.
