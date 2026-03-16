@@ -506,22 +506,24 @@
       height: 14px;
     }
 
-    /* ===== PHOTO GRID 3x3 (Parallax & Magnetic) ===== */
+    /* ===== PHOTO GRID 4x4 (Parallax & Magnetic) ===== */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
       width: 100%;
     }
 
     @media (max-width: 768px) {
       .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
       }
     }
 
     @media (max-width: 480px) {
       .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.3rem;
       }
     }
@@ -590,6 +592,43 @@
 
     .lightbox-close:hover {
       transform: scale(1.1);
+    }
+
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100002;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      padding: 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .lightbox-arrow:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+    }
+    .lightbox-arrow--prev { left: 1.5rem; }
+    .lightbox-arrow--next { right: 1.5rem; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      font-family: var(--f-body);
+    }
+
+    @media (max-width: 600px) {
+      .lightbox-arrow { padding: 10px; }
+      .lightbox-arrow--prev { left: 0.5rem; }
+      .lightbox-arrow--next { right: 0.5rem; }
     }
 
     .photo-item-inner img {
@@ -1026,46 +1065,24 @@
         </div>
       </div>
 
-      <!-- Photo Grid 3x3 Parallax -->
-      <div class="photo-grid">
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/cledo-mare-a-salotto.jpg"
-              alt="Salotto" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/cledo-mare-a-cucina.jpg"
-              alt="Cucina" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/cledo-mare-a-cucinadettaglio.jpg"
-              alt="Dettaglio" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images/cledo-mare-a/cledo-mare-a-cameramatrimoniale.jpg" alt="Camera" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images/cledo-mare-a/cledo-mare-a-cameramatrimoniale-visualepiuampia.jpg" alt="Camera ampia"
-              loading="lazy" />
-          </div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images/cledo-mare-a/cledo-mare-a-cameramatrimonialeee.jpg" alt="Bagno" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/cledo-mare-a-terrazzaa.jpg"
-              alt="Terrazza" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/cledo-mare-a-bagno.jpg"
-              alt="Bagno" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/cledo-mare-a-divanodellasala.jpg"
-              alt="Divano" loading="lazy" /></div>
-        </div>
+      <!-- Photo Grid 4x4 Parallax -->
+      <div class="photo-grid" data-gallery="cledo-a">
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_1_2026-03-04_17-42-27.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2_2026-03-04_17-42-27.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_3_2026-03-04_17-42-27.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_4_2026-03-04_17-42-27.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_5_2026-03-04_17-42-27.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_6_2026-03-04_17-42-27.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-04_17-47-11.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-04_17-48-54.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-19-28.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-22-10.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-22-54.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-23-12.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-23-54.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-24-15.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-25-26.jpg" alt="Cledo A" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-26-05.jpg" alt="Cledo A" loading="lazy" /></div></div>
       </div>
 
       <!-- Comfort & CTA -->
@@ -1155,44 +1172,24 @@
         </div>
       </div>
 
-      <!-- Photo Grid 3x3 Parallax -->
-      <div class="photo-grid">
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images/cledo-mare-b/cledo-mare-b-cameramatrimoniale.jpg" alt="Camera" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-cucina.jpg"
-              alt="Cucina" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-salotto.jpg"
-              alt="Salotto" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-bagno.jpg"
-              alt="Bagno" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-bagnoo.jpg"
-              alt="Bagno" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-bagnooo.jpg"
-              alt="Bagno" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-terrazza.jpg"
-              alt="Terrazza" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img"
-              src="images/cledo-mare-b/cledo-mare-b-armadiocameramatrimoniale.jpg" alt="Armadio" loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/cledo-mare-b-salottooo.jpg"
-              alt="Salotto" loading="lazy" /></div>
-        </div>
+      <!-- Photo Grid 4x4 Parallax -->
+      <div class="photo-grid" data-gallery="cledo-b">
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-27.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28 (2).jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28 (4).jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-56.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-52-29.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-53-51.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-16-32.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-18-16.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-20-44.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-21-07.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-21-35.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-26-43.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-29-16.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-31-58.jpg" alt="Cledo B" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-32-16.jpg" alt="Cledo B" loading="lazy" /></div></div>
       </div>
 
       <!-- Comfort & CTA -->
@@ -1267,44 +1264,24 @@
         </div>
       </div>
 
-      <!-- Photo Grid 3x3 Parallax -->
-      <div class="photo-grid">
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4525.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4527.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4529.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4530.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4532.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4533.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4537.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4539.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
-        <div class="photo-item blur-reveal">
-          <div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4541.JPG" alt="Cledo C"
-              loading="lazy" /></div>
-        </div>
+      <!-- Photo Grid 4x4 Parallax -->
+      <div class="photo-grid" data-gallery="cledo-c">
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4529.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4626.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4627.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4628.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4630.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4631.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4633.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4634.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4637.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4638.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4641.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4642.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4643.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4648.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4649.jpg" alt="Cledo C" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4651.jpg" alt="Cledo C" loading="lazy" /></div></div>
       </div>
 
       <!-- Comfort & CTA -->
@@ -1654,7 +1631,7 @@
   </footer>
 
   <!-- ====== LIGHTBOX ====== -->
-  <div id="lightbox" class="lightbox hide" onclick="closeLightbox(event)">
+  <div id="lightbox" class="lightbox hide">
     <div class="lightbox-close" onclick="closeLightbox(event)">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
         stroke-linecap="round" stroke-linejoin="round">
@@ -1662,7 +1639,18 @@
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </div>
+    <div class="lightbox-arrow lightbox-arrow--prev" onclick="lightboxPrev(event)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </div>
     <img id="lightbox-img" src="" alt="Full Screen Photo">
+    <div class="lightbox-arrow lightbox-arrow--next" onclick="lightboxNext(event)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
   </div>
 
   <!-- ====== JAVASCRIPT ====== -->
@@ -1830,11 +1818,19 @@
     });
 
     // === Lightbox Gallery Logic ===
-    function openLightbox(src) {
+    let currentGallery = [];
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function openLightbox(src, gallery, index) {
+      currentGallery = gallery;
+      currentIndex = index;
       const lightbox = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
       img.src = src;
       lightbox.classList.remove('hide');
+      updateCounter();
     }
 
     function closeLightbox(e) {
@@ -1842,9 +1838,60 @@
       document.getElementById('lightbox').classList.add('hide');
     }
 
-    document.querySelectorAll('.photo-item-inner img').forEach(img => {
-      img.addEventListener('click', () => {
-        openLightbox(img.src);
+    function lightboxPrev(e) {
+      if (e) e.stopPropagation();
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      document.getElementById('lightbox-img').src = currentGallery[currentIndex];
+      updateCounter();
+    }
+
+    function lightboxNext(e) {
+      if (e) e.stopPropagation();
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      document.getElementById('lightbox-img').src = currentGallery[currentIndex];
+      updateCounter();
+    }
+
+    function updateCounter() {
+      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+    }
+
+    // Click on lightbox background to close (but not on img or arrows)
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox(e);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox.classList.contains('hide')) return;
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Touch swipe support
+    const lightboxEl = document.getElementById('lightbox');
+    lightboxEl.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightboxEl.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) lightboxNext();
+        else lightboxPrev();
+      }
+    }, { passive: true });
+
+    // Build galleries per grid and bind click
+    document.querySelectorAll('.photo-grid').forEach(grid => {
+      const imgs = Array.from(grid.querySelectorAll('.photo-item-inner img'));
+      const srcs = imgs.map(img => img.src);
+      imgs.forEach((img, idx) => {
+        img.addEventListener('click', () => {
+          openLightbox(img.src, srcs, idx);
+        });
       });
     });
 
