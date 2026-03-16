@@ -1880,20 +1880,26 @@
 
     function lightboxPrev(e) {
       if (e) e.stopPropagation();
-      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      if (currentIndex <= 0) return;
+      currentIndex--;
       document.getElementById('lightbox-img').src = currentGallery[currentIndex];
       updateCounter();
     }
 
     function lightboxNext(e) {
       if (e) e.stopPropagation();
-      currentIndex = (currentIndex + 1) % currentGallery.length;
+      if (currentIndex >= currentGallery.length - 1) return;
+      currentIndex++;
       document.getElementById('lightbox-img').src = currentGallery[currentIndex];
       updateCounter();
     }
 
     function updateCounter() {
       document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+      document.querySelector('.lightbox-arrow--prev').style.opacity = currentIndex === 0 ? '0.2' : '1';
+      document.querySelector('.lightbox-arrow--prev').style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+      document.querySelector('.lightbox-arrow--next').style.opacity = currentIndex === currentGallery.length - 1 ? '0.2' : '1';
+      document.querySelector('.lightbox-arrow--next').style.pointerEvents = currentIndex === currentGallery.length - 1 ? 'none' : 'auto';
     }
 
     // Click on lightbox background to close (but not on img or arrows)
