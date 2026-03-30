@@ -207,11 +207,7 @@
       transform: scale(1);
     }
 
-    /* Magnetic Button */
-    .btn,
-    .theme-toggle {
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    }
+
 
     .reveal-d1 {
       transition-delay: 0.15s;
@@ -1267,7 +1263,7 @@
           </ul>
         </div>
         <div class="reveal reveal-d1" style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="#" class="btn" target="_blank" rel="noopener">
+          <a href="https://www.booking.com/hotel/it/credo-mare-c-luxury-stay.it.html?aid=356980&label=gog235jc-10CAsocUIYY3JlZG8tbWFyZS1jLWx1eHVyeS1zdGF5SBlYA2hxiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAL-jKrOBsACAdICJDRlMmU5YjFkLTkyOWItNDU4Yi05MjA5LWFjY2Q2OTg4NjAwMtgCAeACAQ&sid=5c1a7086c8c1311cbea1893a2d577358&dist=0&group_adults=2&group_children=0&keep_landing=1&no_rooms=1&sb_price_type=total&type=total&" class="btn" target="_blank" rel="noopener">
             <span>Verifica Disponibilità</span>
             <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
               stroke-linecap="round" stroke-linejoin="round">
@@ -1692,19 +1688,7 @@
       document.getElementById('navLinks').classList.remove('open');
     }
 
-    // === Magnetic Buttons ===
-    const magnetics = document.querySelectorAll('.btn');
-    magnetics.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0px, 0px)';
-      });
-    });
+
 
     // === Lightbox Gallery Logic ===
     let currentGallery = [];
