@@ -492,15 +492,24 @@
       color: #fff !important;
     }
 
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float {
+    .btn-call {
+      border-color: #F0F0F0 !important;
+      color: #F0F0F0 !important;
+    }
+    .btn-call::before {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+    .btn-call:hover {
+      color: #fff !important;
+      border-color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    /* ===== WHATSAPP & CALL FLOAT ===== */
+    .whatsapp-float, .call-float {
       position: fixed;
-      bottom: 2rem;
       right: 2rem;
       width: 55px;
       height: 55px;
-      background-color: #25D366;
-      color: #FFF;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -509,26 +518,54 @@
       z-index: 1000;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     }
+    .whatsapp-float {
+      bottom: 2rem;
+      background-color: #25D366;
+      color: #FFF;
+    }
+    .call-float {
+      bottom: calc(2rem + 65px);
+      background-color: #FFF;
+      color: #0A0A0A;
+    }
     .whatsapp-float:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
       background-color: #22c05c;
-      color: #FFF;
     }
-    .whatsapp-float svg {
+    .call-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      background-color: #E6DFD7;
+    }
+    .whatsapp-float svg, .call-float svg {
       width: 28px;
       height: 28px;
+    }
+    .whatsapp-float svg {
       fill: currentColor;
+    }
+    .call-float svg {
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     @media (max-width: 768px) {
-      .whatsapp-float {
-        bottom: 1.5rem;
+      .whatsapp-float, .call-float {
         right: 1.5rem;
         width: 50px;
         height: 50px;
       }
-      .whatsapp-float svg {
+      .whatsapp-float {
+        bottom: 1.5rem;
+      }
+      .call-float {
+        bottom: calc(1.5rem + 60px);
+      }
+      .whatsapp-float svg, .call-float svg {
         width: 24px;
         height: 24px;
       }
@@ -1034,22 +1071,22 @@
 
       <!-- Photo Grid 4x4 Parallax -->
       <div class="photo-grid" data-gallery="cledo-a">
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_1_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_3_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_4_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_5_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_6_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-04_17-47-11.jpg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 14.49.25.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 14.50.57.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 14.55.37.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 15.00.22.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-04-01 at 11.46.42.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-04-01 at 11.49.00.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-04-01 at 11.51.33.jpeg" alt="Armonia" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-04_17-48-54.jpg" alt="Armonia" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-19-28.jpg" alt="Armonia" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-22-10.jpg" alt="Armonia" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-25-26.jpg" alt="Armonia" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2026-03-06_10-26-05.jpg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 14.49.25.jpeg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 14.50.57.jpeg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 14.55.37.jpeg" alt="Armonia" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/WhatsApp Image 2026-03-17 at 15.00.22.jpeg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_2_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_3_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_4_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-a/photo_5_2026-03-04_17-42-27.jpg" alt="Armonia" loading="lazy" /></div></div>
       </div>
 
       <!-- Comfort & CTA -->
@@ -1100,13 +1137,18 @@
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </a>
-          <a href="https://wa.me/+39XXXXXXXXXX?text=Salve%2C%20vorrei%20prenotare%20Armonia" class="btn btn-whatsapp" target="_blank"
+          <a href="https://wa.me/393929082200?text=Salve%2C%20vorrei%20prenotare%20Armonia" class="btn btn-whatsapp" target="_blank"
             rel="noopener">
-            <span>Prenota su WhatsApp</span>
-            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
+            <span>WhatsApp</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="tel:+393929082200" class="btn btn-call">
+            <span>Chiama Ora</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
           </a>
         </div>
@@ -1150,22 +1192,22 @@
 
       <!-- Photo Grid 4x4 Parallax -->
       <div class="photo-grid" data-gallery="cledo-b">
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/WhatsApp Image 2026-03-17 at 15.08.59.jpeg" alt="Benessere" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/WhatsApp Image 2026-03-17 at 15.15.09.jpeg" alt="Benessere" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/WhatsApp Image 2026-04-01 at 11.42.04.jpeg" alt="Benessere" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/WhatsApp Image 2026-04-01 at 11.44.23.jpeg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-27.jpg" alt="Benessere" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28.jpg" alt="Benessere" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28 (2).jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28 (4).jpg" alt="Benessere" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-28.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-51-56.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-04_17-52-29.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-16-32.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-18-16.jpg" alt="Benessere" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-20-44.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-21-07.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-21-35.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-26-43.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-29-16.jpg" alt="Benessere" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/photo_2026-03-06_10-32-16.jpg" alt="Benessere" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/WhatsApp Image 2026-03-17 at 15.08.59.jpeg" alt="Benessere" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-b/WhatsApp Image 2026-03-17 at 15.15.09.jpeg" alt="Benessere" loading="lazy" /></div></div>
       </div>
 
       <!-- Comfort & CTA -->
@@ -1213,13 +1255,18 @@
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </a>
-          <a href="https://wa.me/+39XXXXXXXXXX?text=Salve%2C%20vorrei%20prenotare%20Benessere" class="btn btn-whatsapp" target="_blank"
+          <a href="https://wa.me/393929082200?text=Salve%2C%20vorrei%20prenotare%20Benessere" class="btn btn-whatsapp" target="_blank"
             rel="noopener">
-            <span>Prenota su WhatsApp</span>
-            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
+            <span>WhatsApp</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="tel:+393929082200" class="btn btn-call">
+            <span>Chiama Ora</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
           </a>
         </div>
@@ -1253,7 +1300,7 @@
       <div class="photo-grid" data-gallery="cledo-c">
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_3038.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4525.jpg" alt="Comfort" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4529.JPG" alt="Comfort" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4529.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4537.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4626.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4627.jpg" alt="Comfort" loading="lazy" /></div></div>
@@ -1261,12 +1308,12 @@
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4631.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4633.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4634.jpg" alt="Comfort" loading="lazy" /></div></div>
-        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4638.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4641.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4642.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4644.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/IMG_4652.jpg" alt="Comfort" loading="lazy" /></div></div>
         <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/WhatsApp Image 2026-03-17 at 15.15.09.jpeg" alt="Comfort" loading="lazy" /></div></div>
+        <div class="photo-item blur-reveal"><div class="photo-item-inner"><img class="prx-img" src="images/cledo-mare-c/WhatsApp Image 2026-04-01 at 11.38.52.jpeg" alt="Comfort" loading="lazy" /></div></div>
       </div>
 
       <!-- Comfort & CTA -->
@@ -1314,13 +1361,18 @@
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </a>
-          <a href="https://wa.me/+39XXXXXXXXXX?text=Salve%2C%20vorrei%20prenotare%20Comfort" class="btn btn-whatsapp" target="_blank"
+          <a href="https://wa.me/393929082200?text=Salve%2C%20vorrei%20prenotare%20Comfort" class="btn btn-whatsapp" target="_blank"
             rel="noopener">
-            <span>Prenota su WhatsApp</span>
-            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
+            <span>WhatsApp</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="tel:+393929082200" class="btn btn-call">
+            <span>Chiama Ora</span>
+            <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
           </a>
         </div>
@@ -1607,7 +1659,9 @@
           style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Comfort</a>
         <a href="#recensioni"
           style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Recensioni</a>
-        <a href="https://wa.me/+39XXXXXXXXXX?text=Salve%2C%20vorrei%20prenotare%20un%20soggiorno%20preso%20Cledo%20Mare" target="_blank" rel="noopener"
+        <a href="tel:+393929082200"
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Chiama</a>
+        <a href="https://wa.me/393929082200?text=Salve%2C%20vorrei%20prenotare%20un%20soggiorno%20preso%20Cledo%20Mare" target="_blank" rel="noopener"
           style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Prenota</a>
       </div>
 
@@ -1626,7 +1680,12 @@
   <!-- v1.1.2 -->
 
   <!-- ====== WHATSAPP FLOAT ====== -->
-  <a href="https://wa.me/+39XXXXXXXXXX?text=Salve%2C%20vorrei%20avere%20informazioni%20sulle%20vostre%20residenze!" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
+  <a href="tel:+393929082200" class="call-float" aria-label="Chiama Cledo Mare">
+    <svg viewBox="0 0 24 24">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </a>
+  <a href="https://wa.me/393929082200?text=Salve%2C%20vorrei%20avere%20informazioni%20sulle%20vostre%20residenze!" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
     <svg viewBox="0 0 24 24">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
