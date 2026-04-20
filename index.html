@@ -2120,13 +2120,23 @@
       
       const elements = document.querySelectorAll('[data-translate]');
       elements.forEach(el => {
-        const key = el.dataset.originalKey || el.innerHTML;
-        if (!el.dataset.originalKey) {
+        let key = el.dataset.originalKey;
+        
+        if (!key) {
+          let attrKey = el.getAttribute('data-translate');
+          key = (attrKey && attrKey !== "") ? attrKey : el.innerHTML.trim();
           el.dataset.originalKey = key;
         }
         
-        if (translations[lang] && translations[lang][key] !== undefined) {
-          el.innerHTML = translations[lang][key];
+        // Match either the literal innerHTML (which has &amp; etc) or a decoded version for simple characters
+        let decodedKey = key.replace(/&amp;/g, '&');
+        
+        if (translations[lang]) {
+          if (translations[lang][key] !== undefined) {
+            el.innerHTML = translations[lang][key];
+          } else if (translations[lang][decodedKey] !== undefined) {
+            el.innerHTML = translations[lang][decodedKey];
+          }
         }
       });
     }
