@@ -69,6 +69,39 @@
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
   <style>
+
+    /* ===== LANG SWITCHER ===== */
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: 2rem;
+      margin-right: 1.5rem;
+      align-items: center;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      padding: 0;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+    }
+    @media (max-width: 768px) {
+      .lang-switch {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
     /* ===== RESET ===== */
     *,
     *::before,
@@ -1029,13 +1062,19 @@
     </a>
     <div style="display:flex; align-items:center;">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#essenza" onclick="closeNav()">L'Essenza</a></li>
-        <li><a href="#cledo-a" onclick="closeNav()">Armonia</a></li>
-        <li><a href="#cledo-b" onclick="closeNav()">Benessere</a></li>
-        <li><a href="#cledo-c" onclick="closeNav()">Comfort</a></li>
-        <li><a href="#recensioni" onclick="closeNav()">Recensioni</a></li>
-        <li><a href="#contatti" onclick="closeNav()">Contatti</a></li>
+        <li><a href="#essenza" onclick="closeNav()" data-translate>L'Essenza</a></li>
+        <li><a href="#cledo-a" onclick="closeNav()" data-translate>Armonia</a></li>
+        <li><a href="#cledo-b" onclick="closeNav()" data-translate>Benessere</a></li>
+        <li><a href="#cledo-c" onclick="closeNav()" data-translate>Comfort</a></li>
+        <li><a href="#recensioni" onclick="closeNav()" data-translate>Recensioni</a></li>
+        <li><a href="#contatti" onclick="closeNav()" data-translate>Contatti</a></li>
       </ul>
+      
+      <div class="lang-switch">
+        <button id="btn-it" onclick="setLanguage('it')" class="lang-btn active">IT</button>
+        <span style="color:var(--border-subtle); margin:0 -0.2rem; font-size:0.8rem">|</span>
+        <button id="btn-en" onclick="setLanguage('en')" class="lang-btn">EN</button>
+      </div>
       <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
         <span></span><span></span><span></span>
       </div>
@@ -1053,15 +1092,15 @@
       </div>
     </div>
     <div style="position:relative; z-index:10; text-align:center; padding:0 2rem;">
-      <p class="t-label reveal" style="color:#ccc; margin-bottom:2rem;">Un rifugio esclusivo sul mare</p>
+      <p class="t-label reveal" style="color:#ccc; margin-bottom:2rem;"><span data-translate>Un rifugio esclusivo sul mare</span> esclusivo sul mare</p>
       <h1 class="t-display reveal reveal-d1" style="color:#fff;">Cledo Mare</h1>
       <p class="t-subheading reveal reveal-d2" style="font-style:italic; color:#ddd; margin-top:1rem; font-weight:300;">
-        Il lusso del tempo, lo spazio del mare.
+        <span data-translate>Il lusso del tempo, lo spazio del mare.</span>
       </p>
       <div class="reveal reveal-d3" style="margin-top:3.5rem;">
         <a href="#essenza" class="btn"
           style="backdrop-filter:blur(5px); background:rgba(10,10,10,0.3); color:#fff; border-color:rgba(255,255,255,0.4);">
-          <span>Scopri</span>
+          <span data-translate>Scopri</span>
           <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19" />
@@ -1077,9 +1116,9 @@
     <div class="container" style="text-align:center; max-width:700px;">
       <div class="divider reveal" style="margin:0 auto 2rem;"></div>
       <h2 class="t-heading" style="margin-bottom:2rem;">
-        <span class="text-reveal"><span class="text-reveal-inner">Ogni dettaglio è</span></span>
+        <span class="text-reveal"><span class="text-reveal-inner" data-translate>Ogni dettaglio è</span></span>
         <span class="text-reveal text-reveal-d1"><span class="text-reveal-inner"
-            style="font-style:italic; color:#ccc;">un respiro profondo.</span></span>
+            style="font-style:italic; color:#ccc;"><span data-translate>un respiro profondo.</span></span></span>
       </h2>
       <p class="t-body reveal reveal-d2" style="text-align:left;">
         <span class="drop-cap">C</span>ledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:
@@ -1097,18 +1136,18 @@
         style="display:grid; grid-template-columns:1fr; gap:3rem; margin-bottom:clamp(3rem,5vw,5rem); align-items:end;"
         class="apt-header">
         <div>
-          <p class="t-label reveal" style="margin-bottom:1rem;">Appartamento · Raffinata Eleganza Fronte Mare</p>
+          <p class="t-label reveal" style="margin-bottom:1rem;"><span data-translate>Appartamento · Raffinata Eleganza Fronte Mare</span></p>
           <h2 class="t-heading reveal reveal-d1">Armonia</h2>
         </div>
         <div style="max-width:500px;">
           <p class="t-body reveal reveal-d2">
-            Design curato nei dettagli, atmosfere avvolgenti e una location di assoluto prestigio. Concepito per offrire
+            <span data-translate>Design curato nei dettagli, atmosfere avvolgenti e una location di assoluto prestigio. Concepito per offrire
             soggiorni all'insegna del puro relax, l'esclusivo appartamento <strong>Armonia</strong> è il rifugio ideale per famiglie o
-            coppie. Gli spazi si distinguono per la scelta di finiture di altissimo pregio.
+            coppie. Gli spazi si distinguono per la scelta di finiture di altissimo pregio.</span>
           </p>
           <p class="t-body reveal reveal-d3" style="margin-top:0.8rem; font-size:0.8rem; color:#9B8E80;">
-            Il fascino architettonico delle volte a vista si sposa con un sofisticato progetto illuminotecnico,
-            infondendo un'allure calda, accogliente e dal lusso discreto. Situato a soli 30 metri dalle onde.
+            <span data-translate>Il fascino architettonico delle volte a vista si sposa con un sofisticato progetto illuminotecnico,
+            infondendo un'allure calda, accogliente e dal lusso discreto. Situato a soli 30 metri dalle onde.</span>
           </p>
         </div>
       </div>
@@ -1143,7 +1182,7 @@
               <svg viewBox="0 0 24 24">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
-              Master Bedroom & divano letto (Max 4 ospiti)
+              <span data-translate>Master Bedroom & divano letto (Max 4 ospiti)</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24">
@@ -1151,7 +1190,7 @@
                 <line x1="12" y1="1" x2="12" y2="3" />
                 <line x1="12" y1="21" x2="12" y2="23" />
               </svg>
-              Clima radiante a pavimento & area lounge esterna
+              <span data-translate>Clima radiante a pavimento & area lounge esterna</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24">
@@ -1160,14 +1199,14 @@
                 <path d="M2 17h20" />
                 <path d="M6 8v9" />
               </svg>
-              Elegante sala da bagno & area lavanderia riservata
+              <span data-translate>Elegante sala da bagno & area lavanderia riservata</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24">
                 <rect x="1" y="3" width="15" height="13" />
                 <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
               </svg>
-              Area lounge esclusiva a soli 30 metri dal mare
+              <span data-translate>Area lounge esclusiva a soli 30 metri dal mare</span>
             </li>
           </ul>
         </div>
@@ -1264,7 +1303,7 @@
               <svg viewBox="0 0 24 24">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               </svg>
-              Master Bedroom & divano letto (Max 4 ospiti)
+              <span data-translate>Master Bedroom & divano letto (Max 4 ospiti)</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24">
@@ -1660,24 +1699,24 @@
   <!-- ====== CONTATTI ====== -->
   <section id="contatti" class="section" style="background:#0A0A0A;">
     <div class="container" style="text-align:center;">
-      <h2 class="t-heading reveal" style="margin-bottom:1rem;">Contatti</h2>
+      <h2 class="t-heading reveal" style="margin-bottom:1rem;"><span data-translate>Contatti</span></h2>
       <p class="t-body reveal reveal-d1" style="max-width:500px; margin:0 auto 4rem;">
-        Siamo a tua disposizione per qualsiasi richiesta o necessità.<br>Non esitare a metterti in contatto con noi.
+        <span data-translate>Siamo a tua disposizione per qualsiasi richiesta o necessità.<br>Non esitare a metterti in contatto con noi.</span>
       </p>
 
       <div style="display:flex; justify-content:center; gap:clamp(2rem, 5vw, 6rem); flex-wrap:wrap; margin-bottom:3rem;" class="reveal reveal-d2">
         <div>
-          <p class="t-label" style="margin-bottom:0.8rem; letter-spacing:0.15em;">TELEFONO & WHATSAPP</p>
+          <p class="t-label" style="margin-bottom:0.8rem; letter-spacing:0.15em;"><span data-translate>TELEFONO & WHATSAPP</span></p>
           <a href="tel:+393929082200" style="font-family:'Playfair Display', serif; font-size:1.5rem; color:var(--text-primary); transition:color 0.3s; display:block;" onmouseover="this.style.color='#9B8E80'" onmouseout="this.style.color='#F0F0F0'">+39 392 908 2200</a>
         </div>
         <div>
-          <p class="t-label" style="margin-bottom:0.8rem; letter-spacing:0.15em;">EMAIL UFFICIALE</p>
+          <p class="t-label" style="margin-bottom:0.8rem; letter-spacing:0.15em;"><span data-translate>EMAIL UFFICIALE</span></p>
           <a href="mailto:info@cledomare.com" style="font-family:'Playfair Display', serif; font-size:1.5rem; color:var(--text-primary); transition:color 0.3s; display:block;" onmouseover="this.style.color='#9B8E80'" onmouseout="this.style.color='#F0F0F0'">info@cledomare.com</a>
         </div>
       </div>
       
       <div style="margin-top:3rem;" class="reveal reveal-d3">
-         <p class="t-label" style="margin-bottom:1.5rem; letter-spacing:0.15em;">SEGUICI SUI SOCIAL</p>
+         <p class="t-label" style="margin-bottom:1.5rem; letter-spacing:0.15em;"><span data-translate>SEGUICI SUI SOCIAL</span></p>
          <div style="display:flex; justify-content:center; gap:3rem;">
             <a href="https://www.instagram.com/cledomareluxurystay/" target="_blank" rel="noopener" style="font-size:1rem; color:#7A6F63; transition:color 0.3s; letter-spacing:0.05em;" onmouseover="this.style.color='#FFF'" onmouseout="this.style.color='#7A6F63'">Instagram</a>
             <a href="https://www.facebook.com/share/1E53mLGCFk/?mibextid=wwXIfr" target="_blank" rel="noopener" style="font-size:1rem; color:#7A6F63; transition:color 0.3s; letter-spacing:0.05em;" onmouseover="this.style.color='#FFF'" onmouseout="this.style.color='#7A6F63'">Facebook</a>
@@ -1696,8 +1735,8 @@
         <h2 class="t-subheading" style="font-style:italic; margin-bottom:1rem; font-size:clamp(1.8rem, 3vw, 2.5rem);">
           Cledo Mare</h2>
         <p style="color:#7A6F63; font-size:0.85rem; max-width:400px; margin:0 auto; line-height:1.8;">
-          Il lusso discreto, l'eleganza che sussurra.<br>Tre residenze sul mare pensate per chi sa apprezzare la
-          bellezza.
+          <span data-translate>Il lusso discreto, l'eleganza che sussurra.<br>Tre residenze sul mare pensate per chi sa apprezzare la
+          bellezza.</span>
         </p>
       </div>
 
@@ -1705,13 +1744,13 @@
       <div class="reveal reveal-d1"
         style="display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:3rem;">
         <a href="#cledo-a"
-          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Armonia</a>
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;" data-translate>Armonia</a>
         <a href="#cledo-b"
-          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Benessere</a>
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;" data-translate>Benessere</a>
         <a href="#cledo-c"
-          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Comfort</a>
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;" data-translate>Comfort</a>
         <a href="#recensioni"
-          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;">Recensioni</a>
+          style="color:#9B8E80; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;" data-translate>Recensioni</a>
       </div>
 
       <!-- Divider -->
@@ -1721,7 +1760,7 @@
       <p
         style="color:#A09688; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;">
         © 2026 Cledo Mare ·
-        Tutti i diritti riservati</p>
+        <span data-translate>Tutti i diritti riservati</span></p>
       <p style="color:#7A6F63; font-size:0.55rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7;">Website
         Design by Patrick Damiani</p>
     </div>
@@ -1933,6 +1972,124 @@
 
   </script>
 
+
+
+  <!-- ====== LANGUAGE SWITCHER SCRIPT ====== -->
+  <script>
+    const translations = {
+      "it": {
+        "L'Essenza": "L'Essenza",
+        "Armonia": "Armonia",
+        "Benessere": "Benessere",
+        "Comfort": "Comfort",
+        "Recensioni": "Recensioni",
+        "Contatti": "Contatti",
+        "Un rifugio esclusivo sul mare": "Un rifugio esclusivo sul mare",
+        "Il lusso del tempo, lo spazio del mare.": "Il lusso del tempo, lo spazio del mare.",
+        "Scopri": "Scopri",
+        "Ogni dettaglio è": "Ogni dettaglio è",
+        "un respiro profondo.": "un respiro profondo.",
+        "Cledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:\n        ambienti luminosi e raffinati che incorniciano il panorama, materiali scelti con cura,\n        e un design minimale che celebra l'essenza dell'abitare sul mare.": "Cledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:\n        ambienti luminosi e raffinati che incorniciano il panorama, materiali scelti con cura,\n        e un design minimale che celebra l'essenza dell'abitare sul mare.",
+        "Appartamento · Raffinata Eleganza Fronte Mare": "Appartamento · Raffinata Eleganza Fronte Mare",
+        "Design curato nei dettagli, atmosfere avvolgenti e una location di assoluto prestigio. Concepito per offrire\n            soggiorni all'insegna del puro relax, l'esclusivo appartamento <strong>Armonia</strong> è il rifugio ideale per famiglie o\n            coppie. Gli spazi si distinguono per la scelta di finiture di altissimo pregio.": "Design curato nei dettagli, atmosfere avvolgenti e una location di assoluto prestigio. Concepito per offrire\n            soggiorni all'insegna del puro relax, l'esclusivo appartamento <strong>Armonia</strong> è il rifugio ideale per famiglie o\n            coppie. Gli spazi si distinguono per la scelta di finiture di altissimo pregio.",
+        "Il fascino architettonico delle volte a vista si sposa con un sofisticato progetto illuminotecnico,\n            infondendo un'allure calda, accogliente e dal lusso discreto. Situato a soli 30 metri dalle onde.": "Il fascino architettonico delle volte a vista si sposa con un sofisticato progetto illuminotecnico,\n            infondendo un'allure calda, accogliente e dal lusso discreto. Situato a soli 30 metri dalle onde.",
+        "Master Bedroom & divano letto (Max 4 ospiti)": "Master Bedroom & divano letto (Max 4 ospiti)",
+        "Clima radiante a pavimento & area lounge esterna": "Clima radiante a pavimento & area lounge esterna",
+        "Elegante sala da bagno & area lavanderia riservata": "Elegante sala da bagno & area lavanderia riservata",
+        "Area lounge esclusiva a soli 30 metri dal mare": "Area lounge esclusiva a soli 30 metri dal mare",
+        "VERIFICA DISPONIBILITÀ": "VERIFICA DISPONIBILITÀ",
+        "CHIAMA ORA": "CHIAMA ORA",
+        "Appartamento · L'Arte del Benessere": "Appartamento · L'Arte del Benessere",
+        "Un'oasi di pace progettata per rigenerare corpo e mente. L'appartamento <strong>Benessere</strong> accoglie gli ospiti\n            con un'estetica minimale, dove ogni elemento d'arredo è stato scelto per creare armonia.": "Un'oasi di pace progettata per rigenerare corpo e mente. L'appartamento <strong>Benessere</strong> accoglie gli ospiti\n            con un'estetica minimale, dove ogni elemento d'arredo è stato scelto per creare armonia.",
+        "Gli ambienti ampi e luminosi si aprono sulla brezza marina, mentre le camere da letto offrono\n            un comfort assoluto grazie a materassi premium e linee pulite. Ideale per chi cerca l'eccellenza.": "Gli ambienti ampi e luminosi si aprono sulla brezza marina, mentre le camere da letto offrono\n            un comfort assoluto grazie a materassi premium e linee pulite. Ideale per chi cerca l'eccellenza.",
+        "Zona living open space & cucina di design": "Zona living open space & cucina di design",
+        "Materassi memory foam & biancheria premium": "Materassi memory foam & biancheria premium",
+        "Smart TV 4K & Wi-Fi ad altissima velocità": "Smart TV 4K & Wi-Fi ad altissima velocità",
+        "Accesso privato diretto a pochi passi dalla spiaggia": "Accesso privato diretto a pochi passi dalla spiaggia",
+        "Appartamento · Comfort Contemporaneo": "Appartamento · Comfort Contemporaneo",
+        "La sintesi perfetta tra funzionalità moderna e calore domestico. <strong>Comfort</strong> è un appartamento dal\n            carattere distinto, pensato per coccolare l'ospite in ogni momento della giornata, offrendo il massimo della privacy.": "La sintesi perfetta tra funzionalità moderna e calore domestico. <strong>Comfort</strong> è un appartamento dal\n            carattere distinto, pensato per coccolare l'ospite in ogni momento della giornata, offrendo il massimo della privacy.",
+        "Dal box doccia walk-in spazioso all'angolo relax esterno. Ogni angolo trasuda un'estetica\n            contemporanea, esaltata dalla luce naturale che illumina lo spazio per l'intera giornata.": "Dal box doccia walk-in spazioso all'angolo relax esterno. Ogni angolo trasuda un'estetica\n            contemporanea, esaltata dalla luce naturale che illumina lo spazio per l'intera giornata.",
+        "Due camere da letto spaziose (Max 5 ospiti)": "Due camere da letto spaziose (Max 5 ospiti)",
+        "Ampio box doccia walk-in & amenities di lusso": "Ampio box doccia walk-in & amenities di lusso",
+        "Macchina Nespresso & selezione di tè e caffè": "Macchina Nespresso & selezione di tè e caffè",
+        "Terrazzo esterno arredato per cene e relax": "Terrazzo esterno arredato per cene e relax",
+        "Dicono di noi": "Dicono di noi",
+        "Siamo a tua disposizione per qualsiasi richiesta o necessità.<br>Non esitare a metterti in contatto con noi.": "Siamo a tua disposizione per qualsiasi richiesta o necessità.<br>Non esitare a metterti in contatto con noi.",
+        "TELEFONO & WHATSAPP": "TELEFONO & WHATSAPP",
+        "EMAIL UFFICIALE": "EMAIL UFFICIALE",
+        "SEGUICI SUI SOCIAL": "SEGUICI SUI SOCIAL",
+        "Il lusso discreto, l'eleganza che sussurra.<br>Tre residenze sul mare pensate per chi sa apprezzare la\n          bellezza.": "Il lusso discreto, l'eleganza che sussurra.<br>Tre residenze sul mare pensate per chi sa apprezzare la\n          bellezza.",
+        "Tutti i diritti riservati": "Tutti i diritti riservati"
+      },
+      "en": {
+        "L'Essenza": "The Essence",
+        "Armonia": "Armonia",
+        "Benessere": "Benessere",
+        "Comfort": "Comfort",
+        "Recensioni": "Reviews",
+        "Contatti": "Contact",
+        "Un rifugio esclusivo sul mare": "An exclusive retreat by the sea",
+        "Il lusso del tempo, lo spazio del mare.": "The luxury of time, the space of the sea.",
+        "Scopri": "Discover",
+        "Ogni dettaglio è": "Every detail is",
+        "un respiro profondo.": "a deep breath.",
+        "Cledo Mare non è solo un luogo dove soggiornare. È una filosofia dello spazio:\n        ambienti luminosi e raffinati che incorniciano il panorama, materiali scelti con cura,\n        e un design minimale che celebra l'essenza dell'abitare sul mare.": "Cledo Mare isn't just a place to stay. It's a philosophy of space:\n        bright and refined environments framing the view, carefully selected materials,\n        and a minimal design celebrating the essence of seaside living.",
+        "Appartamento · Raffinata Eleganza Fronte Mare": "Apartment · Refined Seafront Elegance",
+        "Design curato nei dettagli, atmosfere avvolgenti e una location di assoluto prestigio. Concepito per offrire\n            soggiorni all'insegna del puro relax, l'esclusivo appartamento <strong>Armonia</strong> è il rifugio ideale per famiglie o\n            coppie. Gli spazi si distinguono per la scelta di finiture di altissimo pregio.": "Meticulous design, enveloping atmospheres, and an exceptionally prestigious location. Designed to offer\n            stays of pure relaxation, the exclusive <strong>Armonia</strong> apartment is the ideal retreat for families or\n            couples. Spaces stand out for their highest-quality finishes.",
+        "Il fascino architettonico delle volte a vista si sposa con un sofisticato progetto illuminotecnico,\n            infondendo un'allure calda, accogliente e dal lusso discreto. Situato a soli 30 metri dalle onde.": "The architectural charm of the exposed vaults is paired with a sophisticated lighting design,\n            infusing a warm, welcoming, and discreetly luxurious allure. Located just 30 meters from the waves.",
+        "Master Bedroom & divano letto (Max 4 ospiti)": "Master Bedroom & sofa bed (Max 4 guests)",
+        "Clima radiante a pavimento & area lounge esterna": "Radiant underfloor heating & outdoor lounge area",
+        "Elegante sala da bagno & area lavanderia riservata": "Elegant bathroom & private laundry area",
+        "Area lounge esclusiva a soli 30 metri dal mare": "Exclusive lounge area just 30 meters from the sea",
+        "VERIFICA DISPONIBILITÀ": "CHECK AVAILABILITY",
+        "CHIAMA ORA": "CALL NOW",
+        "Appartamento · L'Arte del Benessere": "Apartment · The Art of Wellbeing",
+        "Un'oasi di pace progettata per rigenerare corpo e mente. L'appartamento <strong>Benessere</strong> accoglie gli ospiti\n            con un'estetica minimale, dove ogni elemento d'arredo è stato scelto per creare armonia.": "An oasis of peace designed to regenerate body and mind. The <strong>Benessere</strong> apartment welcomes guests\n            with a minimalist aesthetic, where every piece of furniture is chosen to create harmony.",
+        "Gli ambienti ampi e luminosi si aprono sulla brezza marina, mentre le camere da letto offrono\n            un comfort assoluto grazie a materassi premium e linee pulite. Ideale per chi cerca l'eccellenza.": "The bright and spacious rooms open up to the sea breeze, while the bedrooms offer\n            absolute comfort thanks to premium mattresses and clean lines. Ideal for those seeking excellence.",
+        "Zona living open space & cucina di design": "Open-plan living area & designer kitchen",
+        "Materassi memory foam & biancheria premium": "Memory foam mattresses & premium linens",
+        "Smart TV 4K & Wi-Fi ad altissima velocità": "4K Smart TV & ultra-high-speed Wi-Fi",
+        "Accesso privato diretto a pochi passi dalla spiaggia": "Direct private access just steps from the beach",
+        "Appartamento · Comfort Contemporaneo": "Apartment · Contemporary Comfort",
+        "La sintesi perfetta tra funzionalità moderna e calore domestico. <strong>Comfort</strong> è un appartamento dal\n            carattere distinto, pensato per coccolare l'ospite in ogni momento della giornata, offrendo il massimo della privacy.": "The perfect synthesis of modern functionality and domestic warmth. <strong>Comfort</strong> is an apartment with a\n            distinct character, designed to pamper guests at any time of the day, offering maximum privacy.",
+        "Dal box doccia walk-in spazioso all'angolo relax esterno. Ogni angolo trasuda un'estetica\n            contemporanea, esaltata dalla luce naturale che illumina lo spazio per l'intera giornata.": "From the spacious walk-in shower to the outdoor relaxation corner. Every angle exudes a\n            contemporary aesthetic, enhanced by the natural light that brightly fills the space all day long.",
+        "Due camere da letto spaziose (Max 5 ospiti)": "Two spacious bedrooms (Max 5 guests)",
+        "Ampio box doccia walk-in & amenities di lusso": "Spacious walk-in shower & luxury amenities",
+        "Macchina Nespresso & selezione di tè e caffè": "Nespresso machine & selection of tea and coffee",
+        "Terrazzo esterno arredato per cene e relax": "Furnished outdoor terrace for dining and relaxation",
+        "Dicono di noi": "What they say about us",
+        "Siamo a tua disposizione per qualsiasi richiesta o necessità.<br>Non esitare a metterti in contatto con noi.": "We are at your disposal for any request or need.<br>Do not hesitate to reach out.",
+        "TELEFONO & WHATSAPP": "PHONE & WHATSAPP",
+        "EMAIL UFFICIALE": "OFFICIAL EMAIL",
+        "SEGUICI SUI SOCIAL": "FOLLOW US ON SOCIAL MEDIA",
+        "Il lusso discreto, l'eleganza che sussurra.<br>Tre residenze sul mare pensate per chi sa apprezzare la\n          bellezza.": "Discreet luxury, whispering elegance.<br>Three seaside residences designed for those who appreciate\n          beauty.",
+        "Tutti i diritti riservati": "All rights reserved"
+      }
+    };
+
+    let currentLang = 'it';
+
+    function setLanguage(lang) {
+      if (lang === currentLang) return;
+      currentLang = lang;
+      
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      
+      const elements = document.querySelectorAll('[data-translate]');
+      elements.forEach(el => {
+        const key = el.dataset.originalKey || el.innerHTML;
+        if (!el.dataset.originalKey) {
+          el.dataset.originalKey = key;
+        }
+        
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+  </script>
 </body>
+
 
 </html>
